@@ -1,6 +1,6 @@
 import React from 'react';
 
-class App9 extends React.Component{
+class App10 extends React.Component{
     constructor(props){
         const count=[];
         super(props)
@@ -45,4 +45,4 @@ class App9 extends React.Component{
 
 }
 
-export default App9;
+export default App10;

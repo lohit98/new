@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App10 from './App10.jsx'
+import App11 from './App11.jsx'
 
-ReactDOM.render( < App10 / > , document.getElementById("app"));
+ReactDOM.render( < App11 / > , document.getElementById("app"));
 
 
 

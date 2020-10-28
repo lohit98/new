@@ -1,13 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App.jsx'
-import App1 from './App1.jsx'
-ReactDOM.render( < App / > ,
-    document.getElementById("app")
-);
+import App10 from './App10.jsx'
 
-ReactDOM.render( < App1 / > ,
-    document.getElementById("app1")
-);
+ReactDOM.render( < App10 / > , document.getElementById("app"));
+
+
 
 

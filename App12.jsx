@@ -1,8 +1,11 @@
 import React,{  } from "react";
 import { BrowserRouter as Router, Switch,Route, Link } from "react-router-dom";
 import "./file.css";
+import {stockData} from "./data.js"
 import html from './Contact.html';
-
+const myconf = require('./myConfig.json5');
+        console.log("myConfig",myconf.default.env)
+        console.log(stockData)
 
 class App12 extends React.Component {
         render() {
@@ -70,7 +73,14 @@ class Home extends React.Component {
             render() {
               return (
                   <div>
-                    <h2>About</h2>
+            {stockData.map((data,key)=>
+            {
+                return( <div key={key}>
+                    {data.company +" "+data.ticket+" "+data.stockPrice}
+                    </div>)
+            }
+            )}
+                    
                   </div>
               );
             }

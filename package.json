@@ -27,5 +27,8 @@
         "css-loader": "^5.0.0",
         "style-loader": "^2.0.0",
         "html-loader": "^1.3.2"
+    },
+    "devDependencies": {
+        "json5-loader": "^4.0.1"
     }
 }

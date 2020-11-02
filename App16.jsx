@@ -3,8 +3,9 @@ class App16 extends React.Component {
     constructor(props) {
       super(props);
   
-      this.username = React.createRef();
+      this.email = React.createRef();
       this.password = React.createRef();
+      this.confirmpassword = React.createRef();
       this.state = {
         errors: []
       };
@@ -13,7 +14,8 @@ class App16 extends React.Component {
     handleSubmit(event) {
       const username = this.username.current.value;
       const password = this.password.current.value;
-      const errors = this.handleValidation(username, password);
+      const confirmpassword = this.confirmpassword.current.value;
+      const errors = this.handleValidation(username, password,confirmpassword);
   
       if (errors.length >= 0) {
         this.setState({ errors });
@@ -31,6 +33,9 @@ class App16 extends React.Component {
       if (password.length < 6) {
         errors.push("Password should be at least 6 characters long");
       }
+      if (password!==confirmpassword) {
+        errors.push("Password is not matching");
+      }
       
       return errors;
     };
@@ -42,15 +47,19 @@ class App16 extends React.Component {
           <h1>React Ref Example</h1>
             {errors.map(error => <p key={error}>{error}</p>)}
             <div>
-              <label>Username:</label>
-              <input type="text" ref={this.username} />
+              <label>email:</label>
+              <input type="email" ref={this.email} />
             </div>
             <div>
               <label>Password:</label>
               <input type="text" ref={this.password} />
             </div>
             <div>
-              <button onClick={this.handleSubmit.bind(this)}>Submit</button>
+              <label>Confirm Password:</label>
+              <input type="text" ref={this.password} />
+            </div>
+            <div>
+              <button onClick={this.handleSubmit.bind(this)}>Sign up</button>
             </div>
           
         </div>

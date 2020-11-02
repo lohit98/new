@@ -4,6 +4,7 @@ class App16 extends React.Component {
       super(props);
   
       this.email = React.createRef();
+      this.username = React.createRef();
       this.password = React.createRef();
       this.confirmpassword = React.createRef();
       this.state = {
@@ -12,10 +13,11 @@ class App16 extends React.Component {
     }
   
     handleSubmit(event) {
+      const email = this.email.current.value;
       const username = this.username.current.value;
       const password = this.password.current.value;
       const confirmpassword = this.confirmpassword.current.value;
-      const errors = this.handleValidation(username, password,confirmpassword);
+      const errors = this.handleValidation(email,username, password,confirmpassword);
   
       if (errors.length >= 0) {
         this.setState({ errors });
@@ -24,12 +26,15 @@ class App16 extends React.Component {
       
     };
   
-    handleValidation  (username, password)  {
+    handleValidation  (username,email,confirmpassword, password)  {
       const errors = [];
       if (username.length === 0) {
         errors.push("Username cannot be empty");
       }
-      
+      if (email.length === 0) {
+        errors.push("email cannot be empty");
+      }
+    //   console.log(password===confirmpassword);
       if (password.length < 6) {
         errors.push("Password should be at least 6 characters long");
       }
@@ -44,11 +49,15 @@ class App16 extends React.Component {
       const { errors } = this.state;
       return (
         <div>
-          <h1>React Ref Example</h1>
+          <h1>Sign up</h1>
             {errors.map(error => <p key={error}>{error}</p>)}
             <div>
               <label>email:</label>
               <input type="email" ref={this.email} />
+            </div>
+            <div>
+              <label>username:</label>
+              <input type="text" ref={this.username} />
             </div>
             <div>
               <label>Password:</label>
@@ -56,7 +65,7 @@ class App16 extends React.Component {
             </div>
             <div>
               <label>Confirm Password:</label>
-              <input type="text" ref={this.password} />
+              <input type="text" ref={this.confirmpassword} />
             </div>
             <div>
               <button onClick={this.handleSubmit.bind(this)}>Sign up</button>

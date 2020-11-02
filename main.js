@@ -1,9 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App12 from './App12.jsx'
+import App15 from './App15.jsx'
 
-ReactDOM.render( < App12 / > , document.getElementById("app"));
-
+ReactDOM.render( < App15 / > , document.getElementById("app"));
 
 
 
